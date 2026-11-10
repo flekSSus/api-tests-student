@@ -10,7 +10,7 @@ import (
 	authModels "api-tests-template/internal/managers/auth/models"
 	advList "api-tests-template/internal/managers/advertisements"
 	"api-tests-template/internal/utils"
-	"api-tests-template/tests/base"
+	base "api-tests-template/tests"
 
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
@@ -24,7 +24,7 @@ const (
 )
 
 type TestSuite struct {
-	base.BaseTestSuite
+	suite.Suite
 	loginData authModels.LoginOkResponse
 }
 
@@ -36,7 +36,7 @@ func (s *TestSuite) SetupSuite() {
 	require.NotEmpty(s.T(), searchBeginning, "задайте searchBeginning")
 	require.NotEmpty(s.T(), searchMiddle, "задайте searchMiddle")
 	require.NotEmpty(s.T(), searchEnd, "задайте searchEnd")
-  
+
 	s.loginData = auth.Login(s.T(), os.Getenv("TEST_LOGIN"), os.Getenv("TEST_PASSWORD"))
 }
 
@@ -51,7 +51,6 @@ func (s *TestSuite) TestSearchByTitle() {
 		assertions.ContainsAdvertisementByTitle(s.T(), list.Items, existingAdTitle)
 	})
 }
-
 
 func (s *TestSuite) TestSearchByTitle_Substring() {
 	cases := []struct {
@@ -75,5 +74,4 @@ func (s *TestSuite) TestSearchByTitle_Substring() {
 }
 
 func TestAdvertisementSearchSuite(t *testing.T) {
-	suite.Run(t, new(TestSuite))
-}
+	suite.Run(t, new(TestSuite)) }
