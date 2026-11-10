@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	client "api-tests-student/internal/client/http/advertisements"
-	"api-tests-student/internal/managers/advertisements/models"
+	client "api-tests-template/internal/client/http/advertisements"
+	"api-tests-template/internal/managers/advertisements/models"
 	"github.com/stretchr/testify/require"
 )
 
