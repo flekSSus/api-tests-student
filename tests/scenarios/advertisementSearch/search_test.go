@@ -51,3 +51,29 @@ func (s *TestSuite) TestSearchByTitle() {
 		assertions.ContainsAdvertisementByTitle(s.T(), list.Items, existingAdTitle)
 	})
 }
+
+
+func (s *TestSuite) TestSearchByTitle_Substring() {
+	cases := []struct {
+		name   string
+		search string
+	}{
+		{"начало", searchBeginning},
+		{"середина", searchMiddle},
+		{"конец", searchEnd},
+		{"нижний регистр", strings.ToLower(searchMiddle)},
+		{"верхний регистр", strings.ToUpper(searchMiddle)},
+		{"смешанный регистр", utils.MixCase(searchMiddle)},
+	}
+
+	for _, tc := range cases {
+		s.Run(tc.name, func() {
+			list := advList.GetAdvertisementsList(s.T(), s.loginData.Token, tc.search)
+			assertions.ContainsAdvertisementByTitle(s.T(), list.Items, existingAdTitle)
+		})
+	}
+}
+
+func TestAdvertisementSearchSuite(t *testing.T) {
+	suite.Run(t, new(TestSuite))
+}
