@@ -3,8 +3,8 @@ package advertisements
 import (
 	"net/http"
 	"testing"
-	"api-tests-student/internal/constants/path"
-	"api-tests-student/internal/helpers/api-runner"
+	"api-tests-template/internal/constants/path"
+	"api-tests-template/internal/helpers/api-runner"
 )
 
 func HttpGetAdvertisements(t *testing.T, token, textForSearch string) *http.Response {
