@@ -1,4 +1,4 @@
-module api-tests-template
+module api-tests-student
 
 go 1.25.1
 
