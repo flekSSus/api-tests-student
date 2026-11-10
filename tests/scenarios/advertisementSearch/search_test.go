@@ -5,12 +5,12 @@ import (
 	"strings"
 	"testing"
 
-	"api-tests-student/internal/assertions"
-	"api-tests-student/internal/managers/auth"
-	authModels "api-tests-student/internal/managers/auth/models"
-	advList "api-tests-student/internal/managers/advertisements"
-	"api-tests-student/internal/utils"
-	"api-tests-student/tests/base"
+	"api-tests-template/internal/assertions"
+	"api-tests-template/internal/managers/auth"
+	authModels "api-tests-template/internal/managers/auth/models"
+	advList "api-tests-template/internal/managers/advertisements"
+	"api-tests-template/internal/utils"
+	"api-tests-template/tests/base"
 
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
