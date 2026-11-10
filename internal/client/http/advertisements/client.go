@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 	"api-tests-template/internal/constants/path"
-	apiRunner"api-tests-template/internal/helpers/api-runner"
+	apiRunner "api-tests-template/internal/helpers/api-runner"
 )
 
 func HttpGetAdvertisements(t *testing.T, token, textForSearch string) *http.Response {
